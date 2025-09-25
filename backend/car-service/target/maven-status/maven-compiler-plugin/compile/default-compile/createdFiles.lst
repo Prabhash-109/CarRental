@@ -1,0 +1,15 @@
+com\carrental\carservice\controller\AuthController.class
+com\carrental\carservice\entity\User.class
+com\carrental\carservice\config\SecurityConfig.class
+com\carrental\carservice\security\JwtAuthenticationFilter.class
+com\carrental\carservice\controller\CarController.class
+com\carrental\carservice\dto\LoginRequest.class
+com\carrental\carservice\repository\CarRepository.class
+com\carrental\carservice\entity\Car.class
+com\carrental\carservice\service\AuthService.class
+com\carrental\carservice\dto\RegisterRequest.class
+com\carrental\carservice\CarServiceApplication.class
+com\carrental\carservice\util\JwtUtil.class
+com\carrental\carservice\dto\CarRequest.class
+com\carrental\carservice\repository\UserRepository.class
+com\carrental\carservice\service\CarService.class

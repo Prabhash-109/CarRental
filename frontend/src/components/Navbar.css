@@ -1,0 +1,131 @@
+/* Navbar container */
+.navbar {
+  background: linear-gradient(135deg, #1a1a2e, #16213e);
+  color: #fff;
+  padding: 0.8rem 2rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+/* Flex container */
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Brand */
+.navbar-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  text-decoration: none;
+  letter-spacing: 1px;
+  transition: color 0.3s ease;
+}
+
+.navbar-brand:hover {
+  color: #f9d342;
+}
+
+/* Links */
+.navbar-links {
+  display: flex;
+  list-style: none;
+  gap: 1.5rem;
+  align-items: center;
+  margin: 0;
+}
+
+.navbar-links li {
+  position: relative;
+}
+
+.navbar-links a {
+  text-decoration: none;
+  color: #ddd;
+  font-size: 1rem;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.navbar-links a:hover {
+  color: #f9d342;
+  transform: translateY(-2px);
+}
+
+/* Auth links */
+.auth-link {
+  padding: 6px 14px;
+  border-radius: 8px;
+  background: #0f3460;
+  color: #fff !important;
+  transition: all 0.3s ease;
+}
+
+.auth-link:hover {
+  background: #f9d342;
+  color: #0f0f0f !important;
+}
+
+.auth-link.register {
+  background: #e94560;
+}
+
+.auth-link.register:hover {
+  background: #f9d342;
+  color: #111 !important;
+}
+
+/* Welcome text */
+.welcome-text {
+  color: #f1f1f1;
+  font-weight: 500;
+  margin-left: 10px;
+}
+
+/* Logout button */
+.logout-btn {
+  background: #e94560;
+  border: none;
+  padding: 6px 14px;
+  border-radius: 8px;
+  color: #fff;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.logout-btn:hover {
+  background: #f9d342;
+  color: #111;
+  transform: scale(1.05);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .navbar-container {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .navbar-links {
+    flex-direction: column;
+    width: 100%;
+    gap: 1rem;
+    margin-top: 1rem;
+  }
+
+  .navbar-links li {
+    width: 100%;
+  }
+
+  .navbar-links a, 
+  .auth-link,
+  .logout-btn {
+    display: block;
+    text-align: center;
+    width: 100%;
+  }
+}

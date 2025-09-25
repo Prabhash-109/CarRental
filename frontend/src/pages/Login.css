@@ -1,0 +1,112 @@
+/* Fullscreen layout */
+.login-page {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: url("https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1600&q=80")
+    no-repeat center center/cover;
+  font-family: "Poppins", sans-serif;
+}
+
+/* Glassmorphic login card */
+.login-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+  border-radius: 20px;
+  padding: 3rem 2.5rem;
+  width: 100%;
+  max-width: 400px;
+  color: white;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  text-align: center;
+}
+
+/* Titles */
+.login-title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+}
+
+.login-subtitle {
+  font-size: 1rem;
+  margin-bottom: 2rem;
+  opacity: 0.85;
+}
+
+/* Form styling */
+.form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+.form-group label {
+  font-weight: 500;
+  font-size: 0.9rem;
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.form-group input {
+  width: 100%;
+  padding: 0.8rem 1rem;
+  border-radius: 12px;
+  border: none;
+  outline: none;
+  font-size: 1rem;
+  background: rgba(255, 255, 255, 0.85);
+}
+
+/* Button */
+.login-btn {
+  width: 100%;
+  padding: 0.9rem;
+  background: linear-gradient(135deg, #ff9800, #e65100);
+  color: white;
+  border: none;
+  border-radius: 12px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease-in-out;
+}
+
+.login-btn:hover {
+  transform: translateY(-3px);
+  background: linear-gradient(135deg, #ffa733, #ff6f00);
+}
+
+/* Alerts */
+.alert {
+  margin-top: 1rem;
+  padding: 0.8rem;
+  border-radius: 10px;
+  font-size: 0.9rem;
+}
+
+.alert-success {
+  background: rgba(0, 255, 128, 0.2);
+  color: #00e676;
+}
+
+.alert-danger {
+  background: rgba(255, 0, 0, 0.2);
+  color: #ff5252;
+}
+
+/* Register link */
+.register-text {
+  margin-top: 1.5rem;
+  font-size: 0.95rem;
+}
+
+.register-text a {
+  color: #ff9800;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}

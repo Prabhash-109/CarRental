@@ -1,0 +1,131 @@
+.home-container {
+  font-family: "Poppins", sans-serif;
+  color: #222;
+}
+
+/* Hero Section */
+.hero {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364),
+    url("https://images.unsplash.com/photo-1549924231-f129b911e442?auto=format&fit=crop&w=1400&q=80")
+      no-repeat center center/cover;
+  color: white;
+  text-align: center;
+  padding: 6rem 2rem;
+  border-radius: 0 0 40px 40px;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  font-weight: 700;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-top: 1rem;
+  opacity: 0.9;
+}
+
+.hero-buttons {
+  margin-top: 2rem;
+}
+
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: all 0.3s ease-in-out;
+  display: inline-block;
+}
+
+.primary-btn {
+  background: #ff9800;
+  color: white;
+  margin-right: 1rem;
+}
+
+.primary-btn:hover {
+  background: #e68900;
+}
+
+.secondary-btn {
+  background: white;
+  color: #333;
+  border: 2px solid #fff;
+}
+
+.secondary-btn:hover {
+  background: transparent;
+  color: white;
+}
+
+/* Stats Section */
+.stats {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  margin: 4rem 2rem;
+  flex-wrap: wrap;
+}
+
+.stat-card {
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  border-radius: 16px;
+  padding: 2rem 3rem;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(135deg, #1d2b64, #f8cdda);
+  flex: 1 1 250px;
+  transition: transform 0.3s ease-in-out;
+}
+
+.stat-card:hover {
+  transform: translateY(-8px);
+}
+
+.stat-number {
+  font-size: 2.5rem;
+  font-weight: 700;
+}
+
+.stat-label {
+  margin-top: 0.5rem;
+  font-size: 1.1rem;
+}
+
+/* Quick Actions */
+.quick-actions {
+  text-align: center;
+  margin: 4rem 2rem;
+}
+
+.quick-actions h2 {
+  margin-bottom: 2rem;
+}
+
+.actions-grid {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.action-card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  padding: 1.5rem 2rem;
+  border-radius: 20px;
+  text-decoration: none;
+  font-weight: 600;
+  color: #333;
+  transition: all 0.3s ease-in-out;
+  min-width: 200px;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+}
+
+.action-card:hover {
+  background: #ff9800;
+  color: white;
+  transform: translateY(-6px);
+}
