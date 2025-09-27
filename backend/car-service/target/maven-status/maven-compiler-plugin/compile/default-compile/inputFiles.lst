@@ -2,6 +2,7 @@ C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\config\SecurityConfig.java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\controller\AuthController.java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\controller\CarController.java
+C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\controller\UsersController.java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\dto\CarRequest.java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\dto\LoginRequest.java
 C:\Users\prabh\OneDrive\Desktop\Rental_Website\backend\car-service\src\main\java\com\carrental\carservice\dto\RegisterRequest.java

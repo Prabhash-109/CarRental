@@ -31,7 +31,10 @@ const Navbar = () => {
                 <li><Link to="/my-bookings">My Bookings</Link></li>
               )}
               {user.role === 'AGENT' && (
-                <li><Link to="/agent/dashboard">Dashboard</Link></li>
+                <>
+                  <li><Link to="/agent/dashboard">Dashboard</Link></li>
+                  <li><Link to="/agent/rented">Rented Cars</Link></li>
+                </>
               )}
               <li className="welcome-text">Hi, {user.firstName} 👋</li>
               <li>

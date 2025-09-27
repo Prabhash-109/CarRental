@@ -42,8 +42,11 @@ public class SecurityConfig {
                 .csrf(csrf -> csrf.disable())
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll()
+                        .requestMatchers("/api/bookings/test").permitAll()
+                        .requestMatchers("/api/bookings/debug/**").permitAll()
                         .requestMatchers("/api/bookings/user/**").hasRole("USER")
                         .requestMatchers("/api/bookings/admin/**").hasRole("ADMIN")
+                        .requestMatchers("/api/bookings/agent/**").hasRole("AGENT")
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS));

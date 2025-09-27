@@ -45,6 +45,15 @@ public class CarController {
         return car.map(ResponseEntity::ok).orElse(ResponseEntity.notFound().build());
     }
 
+    @GetMapping("/public/{id}/agent-username")
+    public ResponseEntity<String> getCarAgentUsername(@PathVariable Long id) {
+        Optional<Car> car = carService.getCarById(id);
+        if (car.isPresent() && car.get().getAgent() != null) {
+            return ResponseEntity.ok(car.get().getAgent().getUsername());
+        }
+        return ResponseEntity.notFound().build();
+    }
+
     @GetMapping("/agent/my-cars")
     public ResponseEntity<List<Car>> getMyCars(Authentication authentication) {
         String username = authentication.getName();

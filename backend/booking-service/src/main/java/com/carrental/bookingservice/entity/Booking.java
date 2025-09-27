@@ -1,5 +1,6 @@
 package com.carrental.bookingservice.entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
@@ -7,6 +8,7 @@ import jakarta.validation.constraints.Size;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 @Entity
 @Table(name = "bookings")
@@ -18,8 +20,9 @@ public class Booking {
     @NotNull
     private Long carId;
 
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "user_id")
+    @JsonManagedReference
     private User user;
 
     @NotNull
@@ -31,12 +34,28 @@ public class Booking {
     @NotNull
     private BigDecimal totalAmount;
 
-    @NotBlank
-    @Size(max = 20)
-    private String status; // PENDING, CONFIRMED, CANCELLED, COMPLETED
+    @Enumerated(EnumType.STRING)
+    @Column(name = "status")
+    private BookingStatus status = BookingStatus.PENDING;
 
     @Size(max = 500)
     private String notes;
+
+    // Car details for display (copied from car service)
+    @Column(name = "car_make")
+    private String carMake;
+
+    @Column(name = "car_model")
+    private String carModel;
+
+    @Column(name = "car_year")
+    private Integer carYear;
+
+    @Column(name = "car_price_per_day")
+    private BigDecimal carPricePerDay;
+
+    @Column(name = "car_image_url")
+    private String carImageUrl;
 
     @Column(name = "created_at")
     private LocalDate createdAt;
@@ -50,13 +69,13 @@ public class Booking {
     }
 
     public Booking(Long carId, User user, LocalDate startDate, LocalDate endDate,   
-                   BigDecimal totalAmount, String status) {
+                   BigDecimal totalAmount, BookingStatus status) {
         this.carId = carId;
         this.user = user;
         this.startDate = startDate;
         this.endDate = endDate;
         this.totalAmount = totalAmount;
-        this.status = status;
+        this.status = status != null ? status : BookingStatus.PENDING;
         this.createdAt = LocalDate.now();
         this.updatedAt = LocalDate.now();
     }
@@ -121,11 +140,11 @@ public class Booking {
         this.totalAmount = totalAmount;
     }
 
-    public String getStatus() {
+    public BookingStatus getStatus() {
         return status;
     }
 
-    public void setStatus(String status) {
+    public void setStatus(BookingStatus status) {
         this.status = status;
     }
 
@@ -151,5 +170,45 @@ public class Booking {
 
     public void setUpdatedAt(LocalDate updatedAt) {
         this.updatedAt = updatedAt;
+    }
+
+    public String getCarMake() {
+        return carMake;
+    }
+
+    public void setCarMake(String carMake) {
+        this.carMake = carMake;
+    }
+
+    public String getCarModel() {
+        return carModel;
+    }
+
+    public void setCarModel(String carModel) {
+        this.carModel = carModel;
+    }
+
+    public Integer getCarYear() {
+        return carYear;
+    }
+
+    public void setCarYear(Integer carYear) {
+        this.carYear = carYear;
+    }
+
+    public BigDecimal getCarPricePerDay() {
+        return carPricePerDay;
+    }
+
+    public void setCarPricePerDay(BigDecimal carPricePerDay) {
+        this.carPricePerDay = carPricePerDay;
+    }
+
+    public String getCarImageUrl() {
+        return carImageUrl;
+    }
+
+    public void setCarImageUrl(String carImageUrl) {
+        this.carImageUrl = carImageUrl;
     }
 }

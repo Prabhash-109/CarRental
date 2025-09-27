@@ -5,7 +5,7 @@ spring:
   application:
     name: booking-service
   datasource:
-    url: jdbc:mysql://localhost:3306/car_rental_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC
+    url: jdbc:mysql://localhost:3306/booking_service_db?allowPublicKeyRetrieval=true&useSSL=false&serverTimezone=UTC&createDatabaseIfNotExist=true
     username: root
     password: Prabhash@109
     driver-class-name: com.mysql.cj.jdbc.Driver
@@ -21,3 +21,8 @@ spring:
 jwt:
   secret: this_is_a_very_long_and_secure_secret_key_123456
   expiration: 86400000 # 1 day in milliseconds
+
+# Car service configuration
+car:
+  service:
+    url: http://localhost:8081

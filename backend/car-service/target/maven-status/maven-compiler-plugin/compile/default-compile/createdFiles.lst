@@ -1,3 +1,4 @@
+com\carrental\carservice\controller\UsersController.class
 com\carrental\carservice\controller\AuthController.class
 com\carrental\carservice\entity\User.class
 com\carrental\carservice\config\SecurityConfig.class

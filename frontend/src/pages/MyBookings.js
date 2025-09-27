@@ -67,6 +67,38 @@ const MyBookings = () => {
     }
   };
 
+  const handleReturnCar = async (bookingId) => {
+    if (window.confirm('Have you successfully returned the car? This will complete your rental.')) {
+      try {
+        await axios.put(`http://localhost:8082/api/bookings/user/${bookingId}/return`, {}, {
+          headers: token ? { Authorization: `Bearer ${token}` } : undefined
+        });
+        // Remove the booking from the list since it's completed and deleted
+        setBookings(prev => prev.filter(booking => booking.id !== bookingId));
+        alert('Thank you! Your rental has been completed successfully.');
+      } catch (error) {
+        console.error('Error returning car:', error);
+        alert('Failed to return car. Please try again or contact support.');
+      }
+    }
+  };
+
+  const handleCancelApplication = async (bookingId) => {
+    if (window.confirm('This will permanently remove your rejected application. Continue?')) {
+      try {
+        await axios.delete(`http://localhost:8082/api/bookings/user/${bookingId}`, {
+          headers: token ? { Authorization: `Bearer ${token}` } : undefined
+        });
+        // Remove the booking from the list
+        setBookings(prev => prev.filter(booking => booking.id !== bookingId));
+        alert('Application removed successfully.');
+      } catch (error) {
+        console.error('Error removing application:', error);
+        alert('Failed to remove application. Please try again.');
+      }
+    }
+  };
+
   if (!user || user.role !== 'USER') {
     return (
       <div style={styles.centerBox}>
@@ -115,14 +147,16 @@ const MyBookings = () => {
                 <strong>End:</strong> {new Date(booking.endDate).toLocaleDateString()}
               </div>
               <div style={styles.detailRow}>
-                <strong>Total:</strong> ₹{booking.totalAmount}
+                <strong>Total:</strong> ${booking.totalAmount}
               </div>
               <div style={styles.detailRow}>
                 <strong>Status:</strong>
                 <span style={{
                   ...styles.status,
-                  backgroundColor: booking.status === 'CONFIRMED' ? '#28a745' :
-                                   booking.status === 'PENDING' ? '#ffc107' : '#dc3545'
+                  backgroundColor: booking.status && booking.status.toUpperCase() === 'ACCEPTED' ? '#28a745' :
+                                   booking.status && booking.status.toUpperCase() === 'PENDING' ? '#ffc107' : 
+                                   booking.status && booking.status.toUpperCase() === 'COMPLETED' ? '#6c757d' : 
+                                   booking.status && booking.status.toUpperCase() === 'REJECTED' ? '#dc3545' : '#6c757d'
                 }}>
                   {booking.status}
                 </span>
@@ -136,12 +170,30 @@ const MyBookings = () => {
                 <strong>Created:</strong> {new Date(booking.createdAt).toLocaleDateString()}
               </div>
               
-              {booking.status === 'PENDING' && (
+              {booking.status && booking.status.toUpperCase() === 'PENDING' && (
                 <button 
                   onClick={() => handleCancelBooking(booking.id)}
                   style={styles.cancelBtn}
                 >
                   ❌ Cancel Booking
+                </button>
+              )}
+              
+              {booking.status && booking.status.toUpperCase() === 'ACCEPTED' && (
+                <button 
+                  onClick={() => handleReturnCar(booking.id)}
+                  style={{...styles.cancelBtn, backgroundColor: '#28a745', borderColor: '#28a745'}}
+                >
+                  ✅ Return Car
+                </button>
+              )}
+              
+              {booking.status && booking.status.toUpperCase() === 'REJECTED' && (
+                <button 
+                  onClick={() => handleCancelApplication(booking.id)}
+                  style={{...styles.cancelBtn, backgroundColor: '#6c757d', borderColor: '#6c757d'}}
+                >
+                  🗑️ Cancel Application
                 </button>
               )}
             </div>

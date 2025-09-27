@@ -9,6 +9,7 @@ import CarList from './pages/CarList';
 import CarDetails from './pages/CarDetails';
 import MyBookings from './pages/MyBookings';
 import AgentDashboard from './pages/AgentDashboard';
+import AgentRented from './pages/AgentRented';
 import AddCar from './pages/AddCar';
 import EditCar from './pages/EditCar';
 import './App.css';
@@ -27,6 +28,7 @@ function App() {
             <Route path="/cars/:id" element={<CarDetails />} />
             <Route path="/my-bookings" element={<MyBookings />} />
             <Route path="/agent/dashboard" element={<AgentDashboard />} />
+            <Route path="/agent/rented" element={<AgentRented />} />
             <Route path="/agent/add-car" element={<AddCar />} />
             <Route path="/agent/edit-car/:id" element={<EditCar />} />
           </Routes>

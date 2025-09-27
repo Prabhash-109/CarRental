@@ -43,6 +43,7 @@ public class SecurityConfig {
                 .authorizeHttpRequests(authz -> authz
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers("/api/cars/public/**").permitAll()
+                        .requestMatchers("/api/users/info").permitAll()
                         .requestMatchers("/api/cars/agent/**").hasRole("AGENT")
                         .requestMatchers("/api/cars/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
