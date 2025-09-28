@@ -1,6 +1,4 @@
 package com.carrental.carservice.controller;
-
-import com.carrental.carservice.entity.User;
 import com.carrental.carservice.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
