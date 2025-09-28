@@ -69,7 +69,7 @@ public class CarService {
         try {
             String url = carServiceUrl + "/api/cars/admin/" + carId + "/status?status=" + status;
             logger.info("Updating car status via: {}", url);
-            ResponseEntity<Map> resp = restTemplate.exchange(url, HttpMethod.PUT, HttpEntity.EMPTY, Map.class);
+            ResponseEntity<Map<String, Object>> resp = restTemplate.exchange(url, HttpMethod.PUT, HttpEntity.EMPTY, new org.springframework.core.ParameterizedTypeReference<Map<String, Object>>() {});
             return resp.getStatusCode().is2xxSuccessful();
         } catch (Exception e) {
             logger.error("Failed to update car status: {}", e.getMessage());
