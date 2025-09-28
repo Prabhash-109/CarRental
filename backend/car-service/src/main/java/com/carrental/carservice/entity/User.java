@@ -39,7 +39,7 @@ public class User {
 
     @NotBlank
     @Size(max = 20)
-    private String role; // USER, AGENT, ADMIN
+    private String role; // USER, AGENT
 
     @Size(max = 15)
     private String phoneNumber;
