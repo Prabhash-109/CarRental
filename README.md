@@ -23,91 +23,89 @@ It allows users to rent cars, manage bookings, and explore vehicle options onlin
 ---
 
 ## 🏗️ Project Structure
-GoDrive/ (CarRental workspace)
-│
+<details>
+<summary>📁 Project Structure — GoDrive (CarRental Workspace)</summary>
+
+```text
+GoDrive/
 ├── backend/
-│ ├── booking-service/
-│ │ ├── .github/
-│ │ │ └── java-upgrade/
-│ │ ├── pom.xml
-│ │ ├── src/
-│ │ │ ├── main/
-│ │ │ │ ├── java/
-│ │ │ │ │ └── com/
-│ │ │ │ │ └── carrental/
-│ │ │ │ │ └── bookingservice/
-│ │ │ │ │ ├── BookingServiceApplication.java
-│ │ │ │ │ ├── config/ # RestTemplateConfig, SecurityConfig, etc.
-│ │ │ │ │ ├── controller/ # BookingController, AuthController
-│ │ │ │ │ ├── dto/ # BookingRequest/Response, CarDto, Auth DTOs
-│ │ │ │ │ ├── entity/ # Booking, User, BookingStatus
-│ │ │ │ │ ├── repository/ # BookingRepository, UserRepository
-│ │ │ │ │ ├── security/ # JwtAuthenticationFilter, security utils
-│ │ │ │ │ ├── service/ # BookingService, AuthService, CarService, UserService
-│ │ │ │ │ └── util/ # JwtUtil, helpers
-│ │ │ │ └── resources/
-│ │ │ │ └── application.yml
-│ │ │ └── target/ # compiled classes, jar
-│ │ └── target/
-│ ├── car-service/
-│ │ ├── pom.xml
-│ │ ├── src/
-│ │ │ ├── main/
-│ │ │ │ ├── java/
-│ │ │ │ │ └── com/
-│ │ │ │ │ └── carrental/
-│ │ │ │ │ └── carservice/
-│ │ │ │ │ ├── CarServiceApplication.java
-│ │ │ │ │ ├── config/
-│ │ │ │ │ ├── controller/ # CarController, AuthController, UsersController
-│ │ │ │ │ ├── dto/ # CarRequest, CarResponse DTOs
-│ │ │ │ │ ├── entity/ # Car, User
-│ │ │ │ │ ├── repository/ # CarRepository, UserRepository
-│ │ │ │ │ ├── security/ # Jwt filter, SecurityConfig
-│ │ │ │ │ └── service/ # CarService, AuthService
-│ │ │ │ └── resources/
-│ │ │ │ └── application.yml
-│ │ │ └── target/
-│ │ └── target/
-│ └── README or additional backend-level files (if any)
+│   ├── booking-service/
+│   │   ├── .github/
+│   │   │   └── java-upgrade/
+│   │   ├── pom.xml
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├── java/com/carrental/bookingservice/
+│   │   │   │   │   ├── BookingServiceApplication.java
+│   │   │   │   │   ├── config/           # RestTemplateConfig, SecurityConfig, etc.
+│   │   │   │   │   ├── controller/       # BookingController, AuthController
+│   │   │   │   │   ├── dto/              # BookingRequest/Response, CarDto, Auth DTOs
+│   │   │   │   │   ├── entity/           # Booking, User, BookingStatus
+│   │   │   │   │   ├── repository/       # BookingRepository, UserRepository
+│   │   │   │   │   ├── security/         # JwtAuthenticationFilter, security utils
+│   │   │   │   │   ├── service/          # BookingService, AuthService, CarService, UserService
+│   │   │   │   │   └── util/             # JwtUtil, helpers
+│   │   │   │   └── resources/
+│   │   │   │       └── application.yml
+│   │   │   └── target/                    # compiled classes, jar
+│   │   └── target/
+│   ├── car-service/
+│   │   ├── pom.xml
+│   │   ├── src/
+│   │   │   ├── main/
+│   │   │   │   ├── java/com/carrental/carservice/
+│   │   │   │   │   ├── CarServiceApplication.java
+│   │   │   │   │   ├── config/
+│   │   │   │   │   ├── controller/       # CarController, AuthController, UsersController
+│   │   │   │   │   ├── dto/              # CarRequest, CarResponse DTOs
+│   │   │   │   │   ├── entity/           # Car, User
+│   │   │   │   │   ├── repository/       # CarRepository, UserRepository
+│   │   │   │   │   ├── security/         # Jwt filter, SecurityConfig
+│   │   │   │   │   └── service/          # CarService, AuthService
+│   │   │   │   └── resources/
+│   │   │   │       └── application.yml
+│   │   │   └── target/
+│   │   └── target/
+│   └── README.md / additional backend files
 │
 ├── frontend/
-│ ├── package.json
-│ ├── public/
-│ │ ├── index.html
-│ │ └── manifest.json
-│ ├── build/ # production build artifacts
-│ │ ├── index.html
-│ │ ├── asset-manifest.json
-│ │ └── static/
-│ ├── src/
-│ │ ├── index.js
-│ │ ├── App.js
-│ │ ├── index.css
-│ │ ├── App.css
-│ │ ├── components/
-│ │ │ └── Navbar.js
-│ │ │ └── Navbar.css
-│ │ ├── contexts/
-│ │ │ └── AuthContext.js
-│ │ ├── pages/
-│ │ │ ├── Home.js
-│ │ │ ├── CarList.js
-│ │ │ ├── CarDetails.js
-│ │ │ ├── AddCar.js
-│ │ │ ├── EditCar.js
-│ │ │ ├── AgentDashboard.js
-│ │ │ ├── AgentRented.js
-│ │ │ ├── Login.js
-│ │ │ ├── Register.js
-│ │ │ ├── MyBookings.js
-│ │ │ └── styles (.css) for each page
-│ │ └── assets/static/ (if any images used in source)
-│ └── public/ # (already above)
+│   ├── package.json
+│   ├── public/
+│   │   ├── index.html
+│   │   └── manifest.json
+│   ├── build/                             # Production build artifacts
+│   │   ├── index.html
+│   │   ├── asset-manifest.json
+│   │   └── static/
+│   ├── src/
+│   │   ├── index.js
+│   │   ├── App.js
+│   │   ├── index.css
+│   │   ├── App.css
+│   │   ├── components/
+│   │   │   ├── Navbar.js
+│   │   │   └── Navbar.css
+│   │   ├── contexts/
+│   │   │   └── AuthContext.js
+│   │   ├── pages/
+│   │   │   ├── Home.js
+│   │   │   ├── CarList.js
+│   │   │   ├── CarDetails.js
+│   │   │   ├── AddCar.js
+│   │   │   ├── EditCar.js
+│   │   │   ├── AgentDashboard.js
+│   │   │   ├── AgentRented.js
+│   │   │   ├── Login.js
+│   │   │   ├── Register.js
+│   │   │   ├── MyBookings.js
+│   │   │   └── styles/ (.css files for each page)
+│   │   └── assets/static/ (optional images)
+│   └── public/ (already listed above)
 │
 └── README.md
 
----
+</details> ```
+
 
 ## 🚀 Features
 
